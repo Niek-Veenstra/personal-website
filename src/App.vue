@@ -1,17 +1,12 @@
 <script setup>
 import {headImplementation} from "@/js/header.js";
+import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage.vue";
 
 headImplementation();
 </script>
 
 <template>
-  <body class="min-h-[200dvh]">
-  <header class="min-h-[100dvh] bg-deeppurple">
-  </header>
-  <main class="bg-deeppurple">
-    <span class="">Hi</span>
-  </main>
-  </body>
+  <PortfolioPage></PortfolioPage>
 </template>
 
 <style scoped>

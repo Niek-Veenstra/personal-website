@@ -5,6 +5,8 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import {createHead} from "@unhead/vue/client";
 
+import Tooltip from 'primevue/tooltip';
+
 const app = createApp(App)
     .use(createHead())
     .use(PrimeVue, {
@@ -20,4 +22,6 @@ const app = createApp(App)
             }
         }
     })
+
+app.directive('tooltip', Tooltip);
 app.mount('#app')

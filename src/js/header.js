@@ -8,6 +8,13 @@ export function headImplementation() {
             {name: 'author', content: author},
             {name: 'description', content: `Developer portfolio of ${author}.`},
             {name: 'keywords', content: keywords.join(", ")},
+        ],
+        link: [
+            {rel: "preconnect", href: "https://rsms.me/"},
+            {
+                rel: "stylesheet",
+                href: "https://rsms.me/inter/inter.css"
+            },
         ]
     });
 }
