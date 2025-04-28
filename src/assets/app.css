@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+@theme {
+   --color-deeppurple: rgb(10, 0, 27)
+}
