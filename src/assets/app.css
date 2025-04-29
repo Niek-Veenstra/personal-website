@@ -15,6 +15,10 @@
     font-family: Inter, sans-serif;
     --default-font-family: Inter;
 }
+::selection {
+    background-color: #ffcc00; /* Gele achtergrond */
+    color: black; /* Zwarte tekstkleur */
+}
 @utility use-transition {
     @apply transition-all ease-in-out duration-200
 }
