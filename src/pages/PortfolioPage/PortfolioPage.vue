@@ -3,10 +3,9 @@ import socials from "./js/socials.js"
 import Socials from "@/pages/PortfolioPage/Socials.vue";
 import Profile from "@/pages/PortfolioPage/Profile.vue";
 import SideText from "@/pages/PortfolioPage/SideText.vue";
-import Navigation from "@/pages/PortfolioPage/Navigation.vue";
+import ScrollNavigation from "@/pages/PortfolioPage/ScrollNavigation.vue";
 
-const ASSET_IMAGES = "./../../src/assets/images"
-const links = [
+const sections = [
   {name: "ABOUT", isActive: false},
   {name: "EXPERIENCE", isActive: true},
   {name: "PROJECTS", isActive: false},
@@ -20,7 +19,7 @@ const links = [
       <aside id="info"
              class="max-w-2xl h-1/2 flex-1 w-[40em] pt-20 text-hero-text font-inter flex flex-col justify-start sticky top-0">
         <Profile></Profile>
-        <Navigation :links="links"></Navigation>
+        <ScrollNavigation :sections="sections"></ScrollNavigation>
         <div class="flex flex-1 flex-col justify-end ">
           <ul id="socials" class="flex justify-self-end mb-20">
             <Socials :socials="socials"></Socials>
