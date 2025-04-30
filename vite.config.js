@@ -1,6 +1,6 @@
+import Vue from 'unplugin-vue/vite'
 import {fileURLToPath, URL} from 'node:url'
 import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
 import {unheadVueComposablesImports} from "@unhead/vue";
@@ -10,17 +10,17 @@ import {PrimeVueResolver} from "@primevue/auto-import-resolver";
 
 export default defineConfig({
     plugins: [
-        vue(),
+        Vue(),
         vueDevTools(),
         tailwindcss(),
-        Components({
-            resolvers: [
-                PrimeVueResolver()
-            ]
-        }),
         AutoImport({
             imports:
-                [unheadVueComposablesImports]
+                [unheadVueComposablesImports, 'vue']
+        }),
+        Components({
+            resolvers: [
+                PrimeVueResolver(),
+            ]
         }),
     ],
     resolve: {
