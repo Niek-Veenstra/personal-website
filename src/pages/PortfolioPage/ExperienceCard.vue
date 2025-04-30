@@ -7,7 +7,7 @@ const {companyName, professionName, description, companyUrl, from, till, tags} =
 
 <template>
   <li class="hover:bg-slate-800/50 p-5 pl-2 group hover:cursor-pointer rounded-md transition motion-reduce:transition-none
-              hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:border-t-hero-text hover:drop-shadow-lg mt-2 mb-2">
+              hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:border-t-hero-text hover:drop-shadow-lg mt-4 mb-4">
     <a :href="companyUrl" rel="noopener" target="_blank" class="flex">
       <span class="min-w-[30%] max-w-1/4 shrink text-xs text-center font-semibold items-baseline justify-evenly text-slate-500">
         <span class="flex items-center justify-start">
