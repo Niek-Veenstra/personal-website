@@ -1,4 +1,6 @@
 <script setup>
+import TechnologyPill from "@/pages/PortfolioPage/TechnologyPill.vue";
+
 const props = defineProps({
   experience: Object
 });
@@ -17,14 +19,14 @@ const {companyName, professionName, description, companyUrl, from, till, tags} =
         </span>
       </span>
       <span class="flex flex-col items-start">
-        <span class="leading-5 text-hero-text content-start font-semibold group-hover:text-teal-200">{{ companyName }}
+        <span class="leading-5 text-hero-text content-start font-semibold group-hover:text-teal-300">{{ companyName }}
           <i class="pi pi-arrow-up-right text-[0.6rem] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i></span>
         <span class="block text-slate-500 font-semibold">{{ professionName }}</span>
-        <p class="text-web-text mt-2 ">
+        <p class="text-web-text mt-2 text-sm">
           {{ description }}
         </p>
-        <ul>
-          <li></li>
+        <ul class="flex flex-wrap gap-2 mt-4">
+          <TechnologyPill v-for="tag in tags" :tag="tag"></TechnologyPill>
         </ul>
       </span>
     </a>

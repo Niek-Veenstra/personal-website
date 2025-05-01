@@ -1,19 +1,26 @@
 <script setup>
-import socials from "@/pages/PortfolioPage/js/socials.js"
-import useSections from "@/pages/PortfolioPage/js/sections.js";
-import experiences from "@/pages/PortfolioPage/js/experiences.js";
+import socials from "@/pages/PortfolioPage/js/constants/socials.js"
+import useSections from "@/pages/PortfolioPage/js/constants/sections.js";
+import experiences from "@/pages/PortfolioPage/js/constants/experiences.js";
 import Socials from "@/pages/PortfolioPage/Socials.vue";
 import Profile from "@/pages/PortfolioPage/Profile.vue";
 import SideText from "@/pages/PortfolioPage/SideText.vue";
 import ScrollNavigation from "@/pages/PortfolioPage/ScrollNavigation.vue";
 import ExperienceCard from "@/pages/PortfolioPage/ExperienceCard.vue";
+import {useSection} from "@/pages/PortfolioPage/js/active_section.js";
+import {useScrollSpy} from "@/pages/PortfolioPage/js/scrollspy.js";
 
 const sections = useSections();
+const activeSection = useSection();
+activeSection.value = sections[0];
+const scrollSpy = useScrollSpy();
+onMounted(() => {
+  scrollSpy.observe(sections,activeSection);
+});
+
 const scrollIntoView = (element) => element.scrollIntoView({behavior: "smooth"})
-const activeSection = ref();
 const sectionClickHandler = (index) => {
   const section = sections[index];
-  console.log(section.element)
   activeSection.value = section;
   scrollIntoView(section.element.value)
 };
@@ -35,7 +42,7 @@ const sectionClickHandler = (index) => {
         </div>
       </aside>
       <main id="main-content"
-            class="pt-25 grid-cols-2 max-w-2xl grid-rows-2 items-center justify-around">
+            class="pt-25  max-w-2xl flex flex-col">
         <section ref="about" id="about" class="text-base col-span-2 place-self-start font-inter scroll-mt-32">
           <SideText></SideText>
         </section>
@@ -44,8 +51,8 @@ const sectionClickHandler = (index) => {
             <ExperienceCard v-for="experience in experiences" :experience="experience"></ExperienceCard>
           </ul>
         </section>
-        <section ref="projects" id="projects" class="mt-20">
-          <ul>
+        <section ref="projects" id="projects" class="mt-20 flex-1">
+          <ul class="flex-1 flex-1">
 
           </ul>
         </section>

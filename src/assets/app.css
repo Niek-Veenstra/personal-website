@@ -50,7 +50,8 @@
     scroll-behavior: smooth ;
     color: var(--color-web-text);
     font-family: Inter, sans-serif;
-    scrollbar-color: var(--color-web-text) var(--color-slate-900)
+    scrollbar-color: var(--color-web-text) var(--color-slate-900);
+    box-sizing: border-box;
 }
 
 ::selection {
