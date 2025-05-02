@@ -13,9 +13,9 @@ import {useScrollSpy} from "@/pages/PortfolioPage/js/scrollspy.js";
 const sections = useSections();
 const activeSection = useSection();
 activeSection.value = sections[0];
-const scrollSpy = useScrollSpy();
+const scrollSpy = useScrollSpy(sections,activeSection);
 onMounted(() => {
-  scrollSpy.observe(sections,activeSection);
+  scrollSpy.observe();
 });
 
 const scrollIntoView = (element) => element.scrollIntoView({behavior: "smooth"})
@@ -52,7 +52,7 @@ const sectionClickHandler = (index) => {
           </ul>
         </section>
         <section ref="projects" id="projects" class="mt-20 flex-1">
-          <ul class="flex-1 flex-1">
+          <ul class="flex-1">
 
           </ul>
         </section>
