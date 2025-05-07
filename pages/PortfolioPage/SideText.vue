@@ -17,7 +17,3 @@
     solutions and projects possible.
   </p>
 </template>
-
-<style scoped>
-
-</style>

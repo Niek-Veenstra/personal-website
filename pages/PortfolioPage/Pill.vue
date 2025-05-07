@@ -10,7 +10,3 @@ const {tag} = props;
     {{ tag }}
   </li>
 </template>
-
-<style scoped>
-
-</style>

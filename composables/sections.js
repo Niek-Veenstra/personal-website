@@ -1,4 +1,4 @@
-export default function useSections(){
+export  function useSections(){
     return [
         {
             name: "ABOUT",

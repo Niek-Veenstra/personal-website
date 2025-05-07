@@ -1,7 +1,7 @@
 const author = "Niek Veenstra";
 const keywords = [author, "Developer Portfolio", "C++", "JavaScript", "C", "Haskell"]
 
-export function headImplementation() {
+export function useHeadImplementation() {
     useHead({
         title: `${author} | Software Engineer`,
         meta: [

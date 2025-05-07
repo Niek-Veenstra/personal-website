@@ -15,7 +15,3 @@ const {socials} = defineProps({
     </li>
   </template>
 </template>
-
-<style scoped>
-
-</style>

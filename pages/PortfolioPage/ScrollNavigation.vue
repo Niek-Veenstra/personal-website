@@ -21,6 +21,3 @@ const isActive = (obj) => toRaw(activeSection) === obj;
     </ul>
   </nav>
 </template>
-
-<style scoped>
-</style>
