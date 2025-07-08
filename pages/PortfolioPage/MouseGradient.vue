@@ -4,7 +4,6 @@ const mouseGradientBox = useTemplateRef('mouseGradientBox')
 const stylePosition = ref("background: radial-gradient(600px at 500px 500px, rgba(29, 78, 216, 0.15), transparent 80%);");
  watchEffect(() => {
   const element = toValue(mouseGradientBox) as HTMLElement
-  console.log("return?")
   if (!element) return;
   const x = coordinates.x.value  + "px";
   const y = coordinates.y.value  + "px";

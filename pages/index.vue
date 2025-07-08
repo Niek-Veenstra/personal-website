@@ -13,7 +13,6 @@ const projects = useProjects();
 const socials = useSocials();
 const experiences = useExperiences();
 const result = useMouseCoordinates()
-
 activeSection.value = sections[0];
 useScrollSpy(sections, activeSection);
 
@@ -56,7 +55,6 @@ const sectionClickHandler = (index) => {
             <section ref="projects" id="projects" class="mt-20 flex-1">
               <ul class="flex-1">
                 <ContentCard v-if="projects" v-for="project in projects" :card="project">
-
                 </ContentCard>
               </ul>
             </section>
