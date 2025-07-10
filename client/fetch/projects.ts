@@ -1,21 +1,18 @@
+import type { AsyncData } from "#app";
 import type { Project } from "~/client/types/project";
 import type { Repository } from "~/shared/types/github";
+import type { FetchError } from "ofetch";
 
-const SUCCESS = "success";
-export async function useProjects(): Promise<Ref<Array<Project>>> {
-  const result = useFetch<Array<Repository>>("/api/projects");
+const mapProjects = (project: Repository) => ({
+  fullName: project.name,
+  description: project.description ?? "",
+  previewUrl: project.social_preview_url,
+});
+const transform = (apiProjects: Array<Repository>): Array<Project> =>
+  apiProjects.map(mapProjects);
 
-  if (result.error.value || result.status.value !== SUCCESS) {
-    console.log(result.error.value);
-    console.log(result.status.value);
-    return ref([]);
-  }
-
-  return ref(
-    result?.data?.value?.map((project) => ({
-      fullName: project.name,
-      description: project.description ?? "",
-      previewUrl: project.social_preview_url,
-    })) ?? [],
-  );
+export function useProjects() {
+  return useFetch("/api/projects", {
+    transform,
+  });
 }

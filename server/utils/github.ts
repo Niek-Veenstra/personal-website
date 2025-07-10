@@ -52,7 +52,7 @@ const emptyOnCatch = (func: () => any) => {
     }
   };
 };
-const fetchImplementation = async () => {
+const fetchImplementation = async (): Promise<Array<Repository>> => {
   const githubProjectsResponse =
     await octoKitInstance.rest.repos.listForAuthenticatedUser({
       affiliation: "owner",
