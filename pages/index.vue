@@ -3,7 +3,7 @@ import Socials from "@/pages/PortfolioPage/Socials.vue";
 import Profile from "@/pages/PortfolioPage/Profile.vue";
 import SideText from "@/pages/PortfolioPage/SideText.vue";
 import ScrollNavigation from "@/pages/PortfolioPage/ScrollNavigation.vue";
-import ContentCard from "@/pages/PortfolioPage/ContentCard.vue";
+import JobExperienceCard from "~/pages/PortfolioPage/JobExperienceCard.vue";
 import MouseGradient from "@/pages/PortfolioPage/MouseGradient.vue";
 import ProjectCard from "./PortfolioPage/ProjectCard.vue";
 import { useProjects } from "~/client/fetch/projects";
@@ -60,11 +60,11 @@ const sectionClickHandler = (index: number) => {
             </section>
             <section ref="experience" id="experience" class="mt-20">
               <ul>
-                <ContentCard
+                <JobExperienceCard
                   v-for="experience in experiences"
                   :card="experience"
                 >
-                </ContentCard>
+                </JobExperienceCard>
               </ul>
             </section>
             <section ref="projects" id="projects" class="mt-20 flex-1">
