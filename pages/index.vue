@@ -4,13 +4,9 @@ import Profile from "@/pages/PortfolioPage/Profile.vue";
 import SideText from "@/pages/PortfolioPage/SideText.vue";
 import ScrollNavigation from "@/pages/PortfolioPage/ScrollNavigation.vue";
 import ContentCard from "@/pages/PortfolioPage/ContentCard.vue";
-import ExperienceDateContent from "@/pages/PortfolioPage/ExperienceDateContent.vue";
 import MouseGradient from "@/pages/PortfolioPage/MouseGradient.vue";
-import ProjectContentCard from "./PortfolioPage/ProjectContentCard.vue";
-import type { Project } from "~/client/types/project";
-import { loadingIcon } from "@primeuix/themes/aura/datatable";
+import ProjectCard from "./PortfolioPage/ProjectCard.vue";
 import { useProjects } from "~/client/fetch/projects";
-import type { Repository } from "~/shared/types/github";
 
 const sections = useSections();
 const activeSection = useSection();
@@ -33,16 +29,13 @@ const sectionClickHandler = (index: number) => {
 
 <template>
   <NuxtPage>
-    <div class="min-h-[200dvh] max-h-[200dvh] flex bg-slate-900">
+    <div class="min-h-fit flex flex-1 bg-slate-900">
       <MouseGradient></MouseGradient>
-      <div
-        id="hero"
-        class="min-h-[100dvh] max-h-[200dvh] flex flex-1 justify-center"
-      >
+      <div class="min-h-[100dvh] flex flex-1 justify-center">
         <div class="flex justify-center max-w-7xl pl-5 pr-5 gap-4">
           <aside
             id="info"
-            class="max-w-2xl h-1/2 flex-1 w-[40em] pt-25 text-hero-text font-inter flex flex-col justify-start sticky top-0"
+            class="max-w-2xl h-1/2 flex-1 w-[40em] max-h-[100dvh] pt-25 text-hero-text font-inter flex flex-col justify-start sticky top-0"
           >
             <Profile></Profile>
             <ScrollNavigation
@@ -71,10 +64,6 @@ const sectionClickHandler = (index: number) => {
                   v-for="experience in experiences"
                   :card="experience"
                 >
-                  <ExperienceDateContent
-                    :from="experience.from"
-                    :till="experience.till"
-                  ></ExperienceDateContent>
                 </ContentCard>
               </ul>
             </section>
@@ -83,11 +72,11 @@ const sectionClickHandler = (index: number) => {
                 :v-if="githubProjects.status.value === 'success'"
                 class="flex-1"
               >
-                <ProjectContentCard
+                <ProjectCard
                   :key="project.fullName"
                   v-for="project in githubProjects.data.value"
                   :project="project"
-                ></ProjectContentCard>
+                ></ProjectCard>
               </ul>
             </section>
           </main>
