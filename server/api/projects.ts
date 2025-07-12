@@ -1,6 +1,7 @@
-import { Octokit } from "octokit";
-import { getProjects } from "../utils/github";
+import { getProjects } from "../cached_functions/github";
 
 export default defineEventHandler(async (_) => {
-  return await getProjects().catch((_) => []);
+  return await getProjects().catch((err) => {
+    return [];
+  });
 });

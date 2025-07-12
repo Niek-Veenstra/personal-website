@@ -18,7 +18,17 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  image: {
+    providers: {
+      serverprovider: {
+        name: "server",
+        provider: "~/providers/server",
+      },
+    },
+  },
   alias: {
     "@/pages": fileURLToPath(new URL("./pages", import.meta.url)),
   },
+
+  modules: ["@nuxt/image"],
 });

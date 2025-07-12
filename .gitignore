@@ -48,6 +48,8 @@ logs
 .DS_Store
 .fleet
 .idea
+images/*
+!images/.gitkeep
 
 # Local env files
 .env
