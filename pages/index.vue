@@ -16,6 +16,7 @@ const githubProjects = await useProjects();
 const socials = useSocials();
 const experiences = useExperiences();
 activeSection.value = sections[0];
+console.log(sections);
 useScrollSpy(sections, activeSection);
 
 const scrollIntoView = (element: HTMLElement) =>
@@ -67,11 +68,8 @@ const sectionClickHandler = (index: number) => {
                 </JobExperienceCard>
               </ul>
             </section>
-            <section ref="projects" id="projects" class="mt-20 flex-1">
-              <ul
-                :v-if="githubProjects.status.value === 'success'"
-                class="flex-1"
-              >
+            <section ref="projects" id="projects" class="mt-20">
+              <ul :v-if="githubProjects.status.value === 'success'">
                 <ProjectCard
                   v-for="project in githubProjects.data.value"
                   :project="project"

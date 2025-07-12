@@ -6,7 +6,7 @@ const operationsGenerator = createOperationsGenerator();
 
 export const getImage: ProviderGetImage = (src, { modifiers = {} } = {}) => {
   const operations = operationsGenerator(modifiers);
-  const appendedPath = "api/image/";
+  const appendedPath = "api/image";
   return {
     url: joinURL(appendedPath, src + (operations ? "?" + operations : "")),
   };
