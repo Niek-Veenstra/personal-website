@@ -73,7 +73,6 @@ const sectionClickHandler = (index: number) => {
                 class="flex-1"
               >
                 <ProjectCard
-                  :key="project.fullName"
                   v-for="project in githubProjects.data.value"
                   :project="project"
                 ></ProjectCard>
