@@ -1,23 +1,13 @@
-import { Octokit } from "octokit";
-import dotenv from "dotenv";
-import { graphql as graphQlUnauthenticated } from "@octokit/graphql";
 import type { GithubApiRepository } from "../types/github";
 import type { Repository } from "~/shared/types/github";
-import { HTTP_OK } from "~/shared/http/status_codes";
-dotenv.config();
-const authToken = process.env?.GITHUB_TOKEN;
-if (authToken == null) {
-  throw new Error("Authentication token for Github cannot be undefined.");
-}
-const graphql = graphQlUnauthenticated.defaults({
-  headers: {
-    authorization: `token ${authToken}`,
-  },
-});
-const octoKitInstance = new Octokit({
-  auth: authToken,
-  userAgent: "personalwebsiteserver/",
-});
+import { status } from "http-status";
+import { writeImage } from "./image";
+import {
+  fetchOpenGraphImages,
+  getAuthenticatedUserInformation,
+  getOpenGraphImageUrls,
+  getOwnGithubProjects,
+} from "../api_calls/github";
 
 const HOUR_IN_SECONDS = 60 * 60;
 const addProjectPreview = async (
@@ -25,22 +15,21 @@ const addProjectPreview = async (
   owner: string,
 ): Promise<Repository> => {
   //@ts-ignore
-  const {
+  let {
     repository: { openGraphImageUrl },
-  } = await graphql(
-    `
-      query getSocialMediaUrl($owner: String!, $name: String!) {
-        repository(owner: $owner, name: $name) {
-          openGraphImageUrl
-        }
-      }
-    `,
-    {
-      owner,
-      name: repository.name,
-    },
+  } = await getOpenGraphImageUrls(owner, repository.name);
+  const openGraphImageResponse = await fetchOpenGraphImages(openGraphImageUrl);
+  if (openGraphImageResponse.status !== status.OK) {
+    return { social_preview_url: "", ...repository };
+  }
+  const fileExtension =
+    openGraphImageResponse.headers["content-type"]?.split("/")[1] ?? null;
+  writeImage(
+    `${repository.name}.${fileExtension}`,
+    openGraphImageResponse.data,
   );
-  return { social_preview_url: openGraphImageUrl, ...repository };
+
+  return { social_preview_url: `api/image/${repository.name}`, ...repository };
 };
 
 const emptyOnCatch = (func: () => any) => {
@@ -53,17 +42,14 @@ const emptyOnCatch = (func: () => any) => {
   };
 };
 const fetchImplementation = async (): Promise<Array<Repository>> => {
-  const githubProjectsResponse =
-    await octoKitInstance.rest.repos.listForAuthenticatedUser({
-      affiliation: "owner",
-    });
-  if (githubProjectsResponse.status !== HTTP_OK) {
+  const githubProjectsResponse = await getOwnGithubProjects();
+  if (githubProjectsResponse.status !== status.OK) {
     return [];
   }
   const projects = githubProjectsResponse.data;
-  const authenticatedUserResponse =
-    await octoKitInstance.rest.users.getAuthenticated();
-  if (authenticatedUserResponse.status !== HTTP_OK) {
+  const authenticatedUserResponse = await getAuthenticatedUserInformation();
+
+  if (authenticatedUserResponse.status !== status.OK) {
     return [];
   }
   const promises: Array<Promise<Repository>> = [];
