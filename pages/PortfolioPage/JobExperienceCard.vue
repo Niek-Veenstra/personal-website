@@ -13,13 +13,10 @@ const { header, subHeader, description, link, tags, from, till } = props.card;
     <a :href="link" rel="noopener" target="_blank" class="flex">
       <ExperienceDateContent :from="from" :till="till"></ExperienceDateContent>
       <span class="flex flex-col items-start">
-        <span
-          class="min-h-6 flex space-between gap-1 content-center text-hero-text font-semibold group-hover:text-teal-300"
+        <CardTitle class="min-h-6 flex space-between gap-1 content-center"
           >{{ header }}
-          <i
-            class="pi pi-arrow-up-right content-center before:text-[0.7rem] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-          ></i
-        ></span>
+          <Arrow></Arrow>
+        </CardTitle>
         <span class="block text-slate-500 font-semibold">{{ subHeader }}</span>
         <p class="text-web-text mt-2 text-sm">
           {{ description }}

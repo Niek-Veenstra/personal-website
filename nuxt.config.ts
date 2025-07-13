@@ -25,10 +25,10 @@ export default defineNuxtConfig({
     },
   ],
   image: {
-    providers: {
-      serverprovider: {
-        name: "server",
-        provider: "~/providers/server",
+    provider: "ipx",
+    ipx: {
+      fs: {
+        dir: fileURLToPath(new URL("./images/", import.meta.url)),
       },
     },
   },

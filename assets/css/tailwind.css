@@ -15,6 +15,10 @@
     @apply h-[0.03rem] inline-block
 }
 
+@utility card-transition {
+   @apply transition motion-reduce:transition-none
+}
+
 @utility hover-lighting {
     @apply hover:text-hero-text transition-all ease-in-out duration-200
 }
