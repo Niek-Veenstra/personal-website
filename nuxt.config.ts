@@ -18,6 +18,12 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
   image: {
     providers: {
       serverprovider: {
