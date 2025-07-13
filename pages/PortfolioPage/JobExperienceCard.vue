@@ -1,6 +1,5 @@
 <script setup>
 import Pill from "@/pages/PortfolioPage/Pill.vue";
-import ListCard from "./ListCard.vue";
 import ExperienceDateContent from "./ExperienceDateContent.vue";
 
 const props = defineProps({

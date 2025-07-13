@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Project } from "~/client/types/project";
-import ListCard from "./ListCard.vue";
 defineProps<{
   project: Project;
 }>();
