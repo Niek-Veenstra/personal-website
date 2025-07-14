@@ -1,14 +1,14 @@
-import type { AsyncData } from "#app";
 import type { Project } from "~/client/types/project";
-import type { Repository } from "~/shared/types/github";
-import type { FetchError } from "ofetch";
+import type { ProjectInformation } from "~/shared/types/github";
 
-const mapProjects = (project: Repository) => ({
+const mapProjects = (project: ProjectInformation) => ({
+  ...project,
   fullName: project.name,
   description: project.description ?? "",
   previewUrl: project.social_preview_url,
+  languages: project.languages,
 });
-const transform = (apiProjects: Array<Repository>): Array<Project> =>
+const transform = (apiProjects: Array<ProjectInformation>): Array<Project> =>
   apiProjects.map(mapProjects);
 
 export function useProjects() {
