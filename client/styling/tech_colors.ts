@@ -1,0 +1,17 @@
+export const tech_colors: Record<string, string> = {
+  "C++": "#f34b7d",
+  JavaScript: "#f1e05a ",
+  TypeScript: "#3178c6 ",
+  Python: "#3572A5",
+  Java: "#b07219",
+  Shell: "#89e051",
+  CSS: "#663399",
+  HTML: "#e34c26",
+  C: "#555555",
+  Go: "#375eab",
+  Rust: "#dea584",
+  CMake: "#DA3434",
+  PowerShell: "#012456",
+  Lua: "#000080",
+  Vue: "#41b883",
+};
