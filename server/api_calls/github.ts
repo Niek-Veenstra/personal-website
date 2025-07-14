@@ -1,7 +1,7 @@
 import { HTTPMethod } from "~/shared/http/http";
 import { graphql, octokit } from "./api_wrappers";
 
-export const fetchOpenGraphImages = async (imageUrl: string) =>
+export const fetchGithubUrl = async (imageUrl: string) =>
   await octokit.request({
     method: HTTPMethod.GET,
     url: imageUrl,
