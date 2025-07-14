@@ -1,5 +1,4 @@
 <script setup>
-import Pill from "@/pages/PortfolioPage/Pill.vue";
 import ExperienceDateContent from "./ExperienceDateContent.vue";
 
 const props = defineProps({
@@ -21,8 +20,8 @@ const { header, subHeader, description, link, tags, from, till } = props.card;
         <p class="text-web-text mt-2 text-sm">
           {{ description }}
         </p>
-        <ul class="flex flex-wrap gap-2 mt-4">
-          <Pill v-for="tag in tags" :tag="tag"></Pill>
+        <ul class="flex text-xs flex-wrap gap-2 mt-4">
+          <Pill v-for="tag in tags">{{ tag }}</Pill>
         </ul>
       </span>
     </a>

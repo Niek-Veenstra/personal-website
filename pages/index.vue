@@ -72,7 +72,11 @@ const sectionClickHandler = (index: number) => {
             <section ref="projects" id="projects" class="pt-20">
               <ul :v-if="githubProjects.status.value === 'success'">
                 <ProjectCard
-                  v-for="project in githubProjects.data.value"
+                  v-for="project in githubProjects.data?.value?.sort(
+                    (a, b) =>
+                      Object.keys(b.languages).length -
+                      Object.keys(a.languages).length,
+                  )"
                   :project="project"
                 ></ProjectCard>
               </ul>
