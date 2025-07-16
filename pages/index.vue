@@ -31,13 +31,13 @@ const sectionClickHandler = (index: number) => {
 
 <template>
   <NuxtPage>
-    <div class="min-h-fit flex flex-1 bg-slate-900">
+    <div class="bg-slate-900">
       <MouseGradient></MouseGradient>
       <div class="min-h-[100dvh] flex flex-1 justify-center">
-        <div class="flex justify-center max-w-7xl pl-5 pr-5 gap-4">
+        <div class="2xl:flex justify-center max-w-7xl gap-4">
           <aside
             id="info"
-            class="max-w-2xl h-1/2 flex-1 w-[40em] max-h-[100dvh] pt-25 text-hero-text font-inter flex flex-col justify-start sticky top-0"
+            class="2xl:h-1/2 flex-1 max-w-[40em] max-h-[100dvh] 2xl:pt-25 pt-16 text-hero-text font-inter 2xl:flex 2xl:flex-col 2xl:justify-start 2xl:sticky 2xl:top-0"
           >
             <Profile></Profile>
             <ScrollNavigation
@@ -47,20 +47,32 @@ const sectionClickHandler = (index: number) => {
             >
             </ScrollNavigation>
             <div class="flex flex-1 flex-col justify-end">
-              <ul id="socials" class="flex col-span-2 justify-self-end mb-20">
+              <ul
+                id="socials"
+                class="flex col-span-2 justify-center 2xl:justify-start justify-self-end mb-4 mt-4 2xl:mb-20"
+              >
                 <Socials :socials="socials"></Socials>
               </ul>
             </div>
           </aside>
-          <main id="main-content" class="pt-25 max-w-2xl flex flex-col">
+          <main
+            id="main-content"
+            class="2xl:pt-25 max-w-2xl flex flex-col break-words"
+          >
             <section
               ref="about"
               id="about"
-              class="text-base col-span-2 place-self-start font-inter scroll-mt-32"
+              class="text-base col-span-2 place-self-start font-inter w-full scroll-mt-32 justify-center items-center flex flex-col"
             >
-              <SideText></SideText>
+              <span class="w-3/4 2xl:w-full">
+                <SideText></SideText>
+              </span>
             </section>
-            <section ref="experience" id="experience" class="pt-20">
+            <section
+              ref="experience"
+              id="experience"
+              class="pt-20 w-3/4 2xl:w-full"
+            >
               <ul>
                 <JobExperienceCard
                   v-for="experience in experiences"
@@ -69,7 +81,11 @@ const sectionClickHandler = (index: number) => {
                 </JobExperienceCard>
               </ul>
             </section>
-            <section ref="projects" id="projects" class="pt-20">
+            <section
+              ref="projects"
+              id="projects"
+              class="pt-20 2xl:w-full w-3/4"
+            >
               <ul :v-if="githubProjects.status.value === 'success'">
                 <ProjectCard
                   v-for="project in githubProjects.data?.value?.sort(

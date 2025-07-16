@@ -20,7 +20,7 @@ const metergroupConfig = ref({
     class: "w-full",
   },
   meter: {
-    class: "h-[0.5rem] mr-[0.2rem] ",
+    class: "h-[0.5rem] mr-[0.2rem]",
   },
   labelText: {
     class: "text-xs text-web-text",

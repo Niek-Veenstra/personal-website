@@ -8,8 +8,10 @@ const isActive = (obj: Ref<any>) => toRaw(activeSection) === obj;
 </script>
 
 <template>
-  <nav class="flex-1 flex text-sm flex-col justify-center items-start">
-    <ul class="pb-20">
+  <nav
+    class="flex-1 flex text-sm flex-col items-center 2xl:justify-center 2xl:items-start"
+  >
+    <ul class="2xl:pb-20">
       <li
         v-for="(section, index) in sections"
         @click="() => sectionClick(index)"
