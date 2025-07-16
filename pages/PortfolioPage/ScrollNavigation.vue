@@ -9,9 +9,9 @@ const isActive = (obj: Ref<any>) => toRaw(activeSection) === obj;
 
 <template>
   <nav
-    class="flex-1 flex text-sm flex-col items-center 2xl:justify-center 2xl:items-start"
+    class="flex-1 w-3/4 xl:w-full flex text-sm flex-col items-center xl:justify-center xl:items-start"
   >
-    <ul class="2xl:pb-20">
+    <ul class="xl:pb-20">
       <li
         v-for="(section, index) in sections"
         @click="() => sectionClick(index)"

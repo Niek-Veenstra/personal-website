@@ -12,6 +12,15 @@ export function useScrollSpy(
       getBoundingBox(two).top - getBoundingBox(one).top;
     const filterF = (section: Section) => getBoundingBox(section).top <= 0;
 
+    console.log(
+      sections.map((one) => {
+        console.log(one.element.value.id);
+
+        one.bb = getBoundingBox(one).top;
+        return one;
+      }),
+    );
+
     const result = sections.filter(filterF).sort(sortF).at(0);
     activeSection.value = result ?? activeSection.value;
   });

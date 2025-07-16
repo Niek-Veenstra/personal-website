@@ -2,15 +2,13 @@
 
 <template>
   <div
-    class="flex flex-col 2xl:justify-items-start items-center 2xl:items-start"
+    class="flex flex-col justify-start items-start xl:items-start xl:w-full w-3/4"
   >
-    <h1 id="hero-header" class="2xl:text-6xl 2xl:text-start text-5xl block">
-      Niek Veenstra
-    </h1>
-    <h2 id="hero-content" class="text-2xl flex-1 2xl:text-start pt-3 block">
+    <h1 id="hero-header" class="2xl:text-6xl text-4xl block">Niek Veenstra</h1>
+    <h2 id="hero-content" class="text-xl flex-1 pt-3 block">
       Software Engineer
     </h2>
-    <p class="text-web-text sm:text-center xl:text-start pt-4 text-base w-3/4">
+    <p class="text-web-text xl:w-1/2 text-start xl:pt-4 text-base">
       Passionate about embedded systems, web applications and mathematics. I use
       <span class="inline-flex group hover:cursor-pointer flex-col">
         <a
@@ -21,7 +19,7 @@
           >NeoVim</a
         >
         <span
-          class="h-[0.02em] pt-[0.05em] transition bg-web-text gradient relative group-hover:animate-gradient -top-1 group-hover:bg-gradient-to-r"
+          class="h-[0.02em] pt-[0.05em] transition bg-web-text gradient relative group-hover:animate-gradient group-hover:bg-gradient-to-r"
         ></span> </span
       >, btw.
     </p>
