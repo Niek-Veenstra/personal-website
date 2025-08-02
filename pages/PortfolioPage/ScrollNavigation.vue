@@ -1,15 +1,27 @@
 <script setup lang="ts">
-const { sections, activeSection, sectionClick } = defineProps<{
+import { mergeCn } from "~/client/styling/merge";
+const {
+  class: className,
+  sections,
+  activeSection,
+  sectionClick,
+} = defineProps<{
   sections: any;
   activeSection: any;
   sectionClick: (index: number) => void;
+  class?: string;
 }>();
 const isActive = (obj: Ref<any>) => toRaw(activeSection) === obj;
 </script>
 
 <template>
   <nav
-    class="flex-1 w-3/4 xl:w-full flex text-sm flex-col items-center xl:justify-center xl:items-start"
+    :class="
+      mergeCn(
+        'flex-1 w-3/4 xl:w-full flex text-sm flex-col items-center xl:justify-center xl:items-start',
+        className ?? '',
+      )
+    "
   >
     <ul class="xl:pb-20">
       <li

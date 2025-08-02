@@ -37,16 +37,17 @@ const sectionClickHandler = (index: number) => {
         <div class="xl:flex flex-row justify-center max-w-7xl">
           <aside
             id="info"
-            class="xl:h-1/2 flex-1 max-w-[40em] max-h-[100dvh] xl:pt-25 items-center pt-16 text-hero-text font-inter flex flex-col xl:justify-start xl:sticky xl:top-0"
+            class="xl:h-1/2 flex-1 max-w-[40em] max-h-[100dvh] items-center pt-20 text-hero-text font-inter flex flex-col xl:justify-start xl:sticky xl:top-0"
           >
             <Profile></Profile>
             <ScrollNavigation
               :section-click="sectionClickHandler"
               :sections="sections"
               :active-section="activeSection"
+              class="hidden xl:flex"
             >
             </ScrollNavigation>
-            <div class="flex flex-1 xl:w-full flex-col justify-end">
+            <div class="flex flex-1 xl:w-full flex-col justify-center">
               <ul
                 id="socials"
                 class="flex col-span-2 justify-center xl:justify-start justify-self-end pb-4 pt-4"
@@ -61,16 +62,16 @@ const sectionClickHandler = (index: number) => {
               id="about"
               class="text-base col-span-2 place-self-start font-inter w-full justify-center items-center flex flex-col xl:pt-20"
             >
-              <span class="w-3/4 xl:w-full">
+              <span class="xl:w-full">
                 <SideText></SideText>
               </span>
             </section>
             <section
               ref="experience"
               id="experience"
-              class="pt-20 xl:w-full flex justify-center w-full"
+              class="pt-20 xl:w-full flex justify-center w-3-4"
             >
-              <ul class="w-3/4 xl:w-full">
+              <ul class="xl:w-full">
                 <JobExperienceCard
                   v-for="experience in experiences"
                   :card="experience"

@@ -1,11 +1,11 @@
 <script setup></script>
 
 <template>
-  <div
-    class="flex flex-col justify-start items-start xl:items-start xl:w-full w-3/4"
-  >
-    <h1 id="hero-header" class="2xl:text-6xl text-4xl block">Niek Veenstra</h1>
-    <h2 id="hero-content" class="text-xl flex-1 pt-3 block">
+  <div class="flex flex-col justify-start items-start xl:items-start xl:w-full">
+    <h1 id="hero-header" class="2xl:text-6xl text-4xl text-bold block">
+      Niek Veenstra
+    </h1>
+    <h2 id="hero-content" class="text-bold flex-1 pt-3 block">
       Software Engineer
     </h2>
     <p class="text-web-text xl:w-1/2 text-start xl:pt-4 text-base">
